@@ -9,7 +9,6 @@ public class Game {
 
         options();
 
-
     }
     //Program print out game Menu.
 
@@ -52,11 +51,13 @@ public class Game {
                         + "1 0 0 0 0 0 0 0 0\n"
                         + "0 0 0 0 0 0 0 0 0\n");
                 System.out.println();
+
                 System.out.println("If you want to stop adding numbers to the Sudoku board \n"
                         + "input -1 and confirm it with Enter \n"
                         + "You will go back to main menu where you can check your board, \n"
                         + "start a new one, continue old one or close game. ");
                 System.out.println();
+
                 System.out.println("This is your Sudoku board \n"
                         + "Have Fun!!!");
                 System.out.println();
@@ -68,11 +69,11 @@ public class Game {
 
             } else if (options.equalsIgnoreCase("k")) {
 
-                if (sudoku.mijesceZerowe() == 0) {
+                if (sudoku.testField() == 0) {
                     System.out.println("You need to start game first");
-                } else if (!(sudoku.mijesceZerowe() == 0)) {
+                } else if (!(sudoku.testField() == 0)) {
 
-                    sudoku.pritTab();
+                    sudoku.printBoard();
                     sudoku.addingNumbers();
                 }
 

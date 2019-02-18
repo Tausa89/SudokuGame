@@ -7,9 +7,8 @@ import java.util.Scanner;
 public class AddingNumbers {
 
     //This class is responsible for adding numbers to the board and load board from a file.
+
     private int [][] sudokuTab;
-
-
 
     public AddingNumbers(){
 
@@ -17,10 +16,9 @@ public class AddingNumbers {
 
     }
 
-
     public int [][] loadingSudokuTab(){
 
-        String inputPath = "C:\\Users\\Lukasz\\Desktop\\Programowanie\\sudoku.txt";
+        String inputPath = "sudoku.txt";
 
         File file = new File(inputPath);
 
@@ -58,8 +56,6 @@ public class AddingNumbers {
 
         }
 
-
-
         return this.sudokuTab;
     }
 
@@ -67,22 +63,19 @@ public class AddingNumbers {
 
         return this.sudokuTab;
 
-
     }
 
-
-    public int mijesceZerowe(){
+    public int testField(){
 
         return this.sudokuTab[5][5];
     }
-
 
     public void setSudokuTab(int[][] sudokuTab) {
 
         this.sudokuTab = sudokuTab;
     }
 
-    public void pritTab(){
+    public void printBoard(){
 
         for (int i = 0; i < 9; i++) {
 
@@ -92,16 +85,12 @@ public class AddingNumbers {
             }
             System.out.println();
 
-
         }
     }
-
 
     public void addingNumbers(){
 
         Scanner input = new Scanner(System.in);
-
-
 
         while (true) {
 

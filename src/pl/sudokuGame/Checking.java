@@ -11,7 +11,6 @@ public class Checking {
 
     }
 
-
     public boolean sudokuChecker(int sudokuTab[][]) {
 
         int goodNumbers[] = new int[9];
@@ -34,7 +33,6 @@ public class Checking {
 
             Arrays.sort(goodNumbers);
 
-
             //Program check if numbers in row are not duplicated.
 
             if (!Arrays.equals(goodNumbers, sortedNumbers)) {
@@ -45,7 +43,6 @@ public class Checking {
         }
 
         return true;
-
 
     }
 
