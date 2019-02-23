@@ -4,21 +4,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class AddingNumbers {
+public class NumbersAdder {
 
     //This class is responsible for adding numbers to the board and load board from a file.
 
     private int [][] sudokuTab;
 
-    public AddingNumbers(){
+    public NumbersAdder(){
 
         this.sudokuTab = new int[9][9];
 
     }
 
-    public int [][] loadingSudokuTab(){
+    public int [][] loadSudokuTab(){
 
-        String inputPath = "sudoku.txt";
+        String inputPath = "C:\\Users\\Lukasz\\Desktop\\Programowanie\\sudoku.txt";
 
         File file = new File(inputPath);
 
