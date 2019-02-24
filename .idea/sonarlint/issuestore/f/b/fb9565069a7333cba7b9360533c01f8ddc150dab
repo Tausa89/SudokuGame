@@ -1,0 +1,8 @@
+
+dsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(‘·®£üÿÿÿÿ8×Ò¼ä‘-
+:squid:S1148-"#Use a logger to log this exception.(Ç’Çê
+[
+squid:S106N"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8“Þ¸æ‘-
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—¦£Äýÿÿÿÿ
+[
+squid:S106L"9Replace this use of System.out or System.err by a logger.(Õé¸ øÿÿÿÿ8ïôšå‘-
