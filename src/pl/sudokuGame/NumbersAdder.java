@@ -45,16 +45,8 @@ public class NumbersAdder {
             ex.printStackTrace();
         }
 
-        for (int i = 0; i < 9; i++) {
+        printBoard();
 
-            for (int j = 0; j < 9; j++) {
-
-                System.out.print((this.sudokuTab[i][j]) + " ");
-            }
-            System.out.println();
-
-
-        }
 
         return this.sudokuTab;
     }
@@ -92,6 +84,7 @@ public class NumbersAdder {
 
         Scanner input = new Scanner(System.in);
 
+
         while (true) {
 
             int cor1 = Integer.parseInt(input.nextLine());
@@ -108,18 +101,10 @@ public class NumbersAdder {
 
                 this.sudokuTab[cor1][cor2] = sudokuNumber;
 
-                for (int i = 0; i < sudokuTab.length; i++)
+                printBoard();
 
-                    for (int j = 0; j < sudokuTab.length; j++) {
-
-                        System.out.print(sudokuTab[i][j] + "|");
-
-                        if (j == 8) {
-                            System.out.println();
-                        }
-                    }
+            }
 
             }
         }
     }
-}

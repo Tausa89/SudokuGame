@@ -7,24 +7,6 @@ public class SudokuGame {
 
     public static void main(String args[]) {
 
-        gameOptions();
-
-    }
-    //Program print out game Menu.
-
-    static String gameMenu() {
-
-        return "If you want start new game press: n.\n"
-                + "If you want to continue game press: k.\n"
-                + "If you want to check your suddoku table: c.\n"
-                + "If you want to exit game press: e";
-
-    }
-
-    //Program working depend on chose form gameMenu
-
-    static void gameOptions() {
-
         String options = "";
         Scanner input = new Scanner(System.in);
         System.out.println("");
@@ -34,9 +16,9 @@ public class SudokuGame {
 
         while (!options.equalsIgnoreCase("e")) {
 
-
-            System.out.println(gameMenu());
+            System.out.println(gameMenu(options));
             options = input.nextLine();
+
 
             switch (options.toUpperCase()){
                 case "N":
@@ -57,7 +39,21 @@ public class SudokuGame {
 
             }
         }
+
     }
+    //Program print out game Menu.
+
+    static String gameMenu(String option) {
+
+        System.out.println("If you want start new game press: n.\n"
+                + "If you want to continue game press: k.\n"
+                + "If you want to check your suddoku table: c.\n"
+                + "If you want to exit game press: e");
+
+        return option;
+
+    }
+
 
     public static void closeGame() {
 
@@ -82,12 +78,15 @@ public class SudokuGame {
     public static void continueSudokuBoard(NumbersAdder sudoku) {
 
 
+
+
         if (sudoku.testField() == 0) {
             System.out.println("You need to start game first");
         } else if ((sudoku.testField() !=0)) {
 
             sudoku.printBoard();
             sudoku.addingNumbers();
+
         }
     }
 
