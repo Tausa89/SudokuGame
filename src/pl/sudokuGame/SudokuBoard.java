@@ -4,19 +4,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class NumbersAdder {
+public class SudokuBoard {
 
     //This class is responsible for adding numbers to the board and load board from a file.
 
-    private int [][] sudokuTab;
+    private int[][] sudokuTab;
 
-    public NumbersAdder(){
+    public SudokuBoard() {
 
         this.sudokuTab = new int[9][9];
 
     }
 
-    public int [][] loadSudokuTab(){
+    public int[][] loadSudokuTab() {
 
         String inputPath = "C:\\Users\\Lukasz\\Desktop\\Programowanie\\sudoku.txt";
 
@@ -57,7 +57,7 @@ public class NumbersAdder {
 
     }
 
-    public int testField(){
+    public int testField() {
 
         return this.sudokuTab[5][5];
     }
@@ -67,7 +67,7 @@ public class NumbersAdder {
         this.sudokuTab = sudokuTab;
     }
 
-    public void printBoard(){
+    public void printBoard() {
 
         for (int i = 0; i < 9; i++) {
 
@@ -80,7 +80,7 @@ public class NumbersAdder {
         }
     }
 
-    public void addingNumbers(){
+    public void addingNumbers() {
 
         Scanner input = new Scanner(System.in);
 
@@ -105,6 +105,14 @@ public class NumbersAdder {
 
             }
 
-            }
         }
     }
+
+    public boolean checkSudokuGame() {
+
+        SudokuChecker check = new SudokuChecker();
+
+        return check.sudokuChecker(this.sudokuTab);
+    }
+
+}

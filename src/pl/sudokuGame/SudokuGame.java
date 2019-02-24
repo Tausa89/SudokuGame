@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class SudokuGame {
 
+    static SudokuBoard sudoku = new SudokuBoard();
+
+
 
     public static void main(String args[]) {
 
         String options = "";
         Scanner input = new Scanner(System.in);
         System.out.println("");
-        NumbersAdder sudoku = new NumbersAdder();
-        SudokuChecker check = new SudokuChecker();
 
 
         while (!options.equalsIgnoreCase("e")) {
@@ -22,13 +23,13 @@ public class SudokuGame {
 
             switch (options.toUpperCase()){
                 case "N":
-                    startNewSudokuBoard(sudoku);
+                    startNewSudokuBoard();
                     break;
                 case "K":
-                    continueSudokuBoard(sudoku);
+                    continueSudokuBoard();
                     break;
                 case "C":
-                    checkSudokuGame(sudoku,check);
+                    checkSudokuGame();
                     break;
                 case "E":
                     closeGame();
@@ -43,7 +44,7 @@ public class SudokuGame {
     }
     //Program print out game Menu.
 
-    static String gameMenu(String option) {
+    public static String gameMenu(String option) {
 
         System.out.println("If you want start new game press: n.\n"
                 + "If you want to continue game press: k.\n"
@@ -61,12 +62,13 @@ public class SudokuGame {
                 +"See you next time.");
     }
 
-    public static void checkSudokuGame(NumbersAdder sudoku,SudokuChecker check) {
+    public static void checkSudokuGame() {
 
 
-        boolean answer = check.sudokuChecker(sudoku.getSudokuTab());
 
-        if (answer) {
+
+
+        if (sudoku.checkSudokuGame()) {
 
             System.out.println("Your Sudoku is correct!!!! Congratulations!!! ");
 
@@ -75,7 +77,7 @@ public class SudokuGame {
         System.out.println();
     }
 
-    public static void continueSudokuBoard(NumbersAdder sudoku) {
+    public static void continueSudokuBoard() {
 
 
 
@@ -90,7 +92,7 @@ public class SudokuGame {
         }
     }
 
-    public static void startNewSudokuBoard(NumbersAdder sudoku) {
+    public static void startNewSudokuBoard() {
 
 
         System.out.println("You can add your number to Sudoku board be giving \n"
