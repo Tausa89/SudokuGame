@@ -1,4 +1,4 @@
-package pl.sudokuGame;
+package pl.sudokugame;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,32 +11,16 @@ public class SudokuBoard {
     private int[][] sudokuTab;
 
     public SudokuBoard() {
-
         this.sudokuTab = new int[9][9];
-
     }
 
-    public int[][] loadSudokuTab() {
-
-        String inputPath = "C:\\Users\\Lukasz\\Desktop\\Programowanie\\sudoku.txt";
-
-        File file = new File(inputPath);
-
-        //Program load sudoku board from a file and print it.
-
-
-        try (Scanner scanner = new Scanner(file)) {
-
+    public void loadSudokuTab(File sudokuTabFile) {
+        try (Scanner scanner = new Scanner(sudokuTabFile)) {
             for (int i = 0; i < 9; i++) {
-
                 for (int j = 0; j < 9; j++) {
-
                     if (scanner.hasNext()) {
-
                         this.sudokuTab[i][j] = scanner.nextInt();
-
                     } else {
-
                         throw new IOException("File input error");
                     }
                 }
@@ -44,75 +28,47 @@ public class SudokuBoard {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-        printBoard();
-
-
-        return this.sudokuTab;
     }
 
     public int[][] getSudokuTab() {
-
         return this.sudokuTab;
-
-    }
-
-    public int testField() {
-
-        return this.sudokuTab[5][5];
     }
 
     public void setSudokuTab(int[][] sudokuTab) {
-
         this.sudokuTab = sudokuTab;
     }
 
+    public int testField() {
+        return this.sudokuTab[5][5];
+    }
+
     public void printBoard() {
-
         for (int i = 0; i < 9; i++) {
-
             for (int j = 0; j < 9; j++) {
-
                 System.out.print((this.sudokuTab[i][j]) + " ");
             }
             System.out.println();
-
         }
     }
 
-    public void addingNumbers() {
-
+    public void addNumbers() {
         Scanner input = new Scanner(System.in);
 
-
         while (true) {
-
-            int cor1 = Integer.parseInt(input.nextLine());
-
-            if (cor1 == -1) {
-
+            int row = Integer.parseInt(input.nextLine());
+            if (row == -1) {
                 break;
-
             } else {
-
-                int cor2 = Integer.parseInt(input.nextLine());
-
+                int column = Integer.parseInt(input.nextLine());
                 int sudokuNumber = Integer.parseInt(input.nextLine());
-
-                this.sudokuTab[cor1][cor2] = sudokuNumber;
-
+                this.sudokuTab[row][column] = sudokuNumber;
                 printBoard();
-
             }
-
         }
     }
 
     public boolean checkSudokuGame() {
-
-        SudokuChecker check = new SudokuChecker();
-
-        return check.sudokuChecker(this.sudokuTab);
+        return SudokuChecker.check(this);
     }
 
 }
