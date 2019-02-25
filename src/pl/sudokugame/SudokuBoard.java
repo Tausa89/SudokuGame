@@ -51,20 +51,8 @@ public class SudokuBoard {
         }
     }
 
-    public void addNumbers() {
-        Scanner input = new Scanner(System.in);
-
-        while (true) {
-            int row = Integer.parseInt(input.nextLine());
-            if (row == -1) {
-                break;
-            } else {
-                int column = Integer.parseInt(input.nextLine());
-                int sudokuNumber = Integer.parseInt(input.nextLine());
-                this.sudokuTab[row][column] = sudokuNumber;
-                printBoard();
-            }
-        }
+    public void addNumbers(int row, int column, int number) {
+        this.sudokuTab[row][column] = number;
     }
 
     public boolean checkSudokuGame() {

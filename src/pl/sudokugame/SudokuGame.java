@@ -68,7 +68,17 @@ public class SudokuGame {
             System.out.println("You need to start game first");
         } else if ((sudoku.testField() !=0)) {
             sudoku.printBoard();
-            sudoku.addNumbers();
+            while (true) {
+                int row = Integer.parseInt(input.nextLine());
+                if (row == -1) {
+                    break;
+                } else {
+                    int column = Integer.parseInt(input.nextLine());
+                    int sudokuNumber = Integer.parseInt(input.nextLine());
+                    sudoku.addNumbers(row, column, sudokuNumber);
+                    sudoku.printBoard();
+                }
+            }
         }
     }
 
@@ -93,7 +103,7 @@ public class SudokuGame {
         String inputPath = "C:\\Users\\Lukasz\\Desktop\\Programowanie\\sudoku.txt";
         File sudokuTabFile = new File(inputPath);
         sudoku.loadSudokuTab(sudokuTabFile);
-        sudoku.addNumbers();
+        continueSudokuGame();
     }
 }
 
